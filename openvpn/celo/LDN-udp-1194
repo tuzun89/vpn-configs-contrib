@@ -1,0 +1,67 @@
+dev tun
+tun-ipv6
+persist-tun
+persist-key
+cipher AES-128-GCM
+ncp-disable
+auth SHA256
+tls-client
+client
+resolv-retry infinite
+remote uk1.celo.net 1194 udp
+auth-user-pass
+remote-cert-tls server
+push "redirect-gateway def1"
+script-security 2
+dhcp-option DNS 94.140.14.14
+# Only on ubuntu client, you also need following directives:
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+<ca>
+-----BEGIN CERTIFICATE-----
+MIIDrDCCApSgAwIBAgIBADANBgkqhkiG9w0BAQsFADBDMRQwEgYDVQQDEwtpbnRl
+cm5hbC1jYTELMAkGA1UEBhMCR0IxDzANBgNVBAcTBkxvbmRvbjENMAsGA1UEChME
+Q0VMTzAeFw0yMTAyMTIyMzIzMzFaFw0zMTAyMTAyMzIzMzFaMEMxFDASBgNVBAMT
+C2ludGVybmFsLWNhMQswCQYDVQQGEwJHQjEPMA0GA1UEBxMGTG9uZG9uMQ0wCwYD
+VQQKEwRDRUxPMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAulLNkdLr
+hhWuHF04UlBXNz9+qoNt6al7wVtre/VX+WWwyixp9J2FGIhI5iMFNkNeGPdlmO8p
+EaN2IGWdpUUpKRubbwzTiK6/zH38E4rJk6oQE+o1VUIjLYx3hCAFFYPhohQMF2fx
+G8HONi7V7T54384DYrrJQX/0UV6JYFBnIfztCzA2Gjs+MWbcYvHJxVhpwTgJ0xbV
++Xksq7qOXwSwYZT6PUmR7hMO23FNCwDgjmCcoIi6SBm5QMcIEQjFCsDtXkgi/X/g
+Ir9va+8k60CRnfvi86zd0JNJpqGqrWeyS0vUXkclcYOVZ/LSloZJdTjpB4YM7RSB
+OyP/VQA5pIx1VQIDAQABo4GqMIGnMB0GA1UdDgQWBBRbiynccaOfn6g3nVbhTphY
+3uerjDBrBgNVHSMEZDBigBRbiynccaOfn6g3nVbhTphY3uerjKFHpEUwQzEUMBIG
+A1UEAxMLaW50ZXJuYWwtY2ExCzAJBgNVBAYTAkdCMQ8wDQYDVQQHEwZMb25kb24x
+DTALBgNVBAoTBENFTE+CAQAwDAYDVR0TBAUwAwEB/zALBgNVHQ8EBAMCAQYwDQYJ
+KoZIhvcNAQELBQADggEBAI5tzBpu12HOJIWUBdsny0DrDUy9yElEErN0J5bOpfNb
++MzHFAYqVNoXymW3VSm/BKNwhZWdqlyIQxmj+n27ywg4zBhCFJlJgN+KazJGeqtg
+ExUnl8AkU2WqdhFrYtBqxkbZOZnD/8EPay+h6X0YgZoA9W/m7RO/oVxN1hWZYv57
+h7ZH96z3odu9wWLVMUaiprr+QcXMneH+NKQPtgyOB8GANidrLF8qynzgTQ2Jccmn
+nvDJn7DqK0mr9AP1kFWLbqQ9mS+WG8IpaVWyQIuSd9xXbpyz8krQaIjFn4f3SsPm
+XrxwbPHbYP+Han9Pc//UUxms4sSqwZeNT+41A9w7qeg=
+-----END CERTIFICATE-----
+</ca>
+setenv CLIENT_CERT 0
+<tls-crypt>
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+551f5ef459c84c321cd5a090762d1f43
+e6880239c6064033ce75ea2365c7eacc
+29ea22000a9feaddad7038256eb2c5ce
+f70dfc2f1f6d5ae385473619711b8a3b
+afd089ed117f5ba37dfdbf4037a49b2e
+12eedefafc68d4c115a38575e8f72dc4
+d0f3e1204e813ca8e849a842c965bf40
+bd5c8de222107b9355811a06dae778f2
+0af9fe99ac12b2276e1ade88520aab63
+b382140e89fcfb30c1092a96a1129ac9
+d51767f8c7aa2b11afef103896e38ff4
+fee4ed3b6e851a9ce832d30f090058d7
+03da4613185d9a25099876309a24d3aa
+5ec0766fdd6e80b7874f68d16477df68
+d57ccf56b0de6b9cc2436cc915eb22ef
+2ea90f8b4b26bd8b9bebf6a16f11e04d
+-----END OpenVPN Static key V1-----
+</tls-crypt>
