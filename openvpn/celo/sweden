@@ -1,0 +1,67 @@
+dev tun
+tun-ipv6
+persist-tun
+persist-key
+cipher AES-128-GCM
+ncp-disable
+auth SHA256
+tls-client
+client
+resolv-retry infinite
+remote sw1.celo.net 443 tcp-client
+auth-user-pass
+remote-cert-tls server
+push "redirect-gateway def1"
+script-security 2
+dhcp-option DNS 94.140.14.14
+# Only on ubuntu client, you also need following directives:
+up /etc/openvpn/update-resolv-conf
+down /etc/openvpn/update-resolv-conf
+<ca>
+-----BEGIN CERTIFICATE-----
+MIIDtTCCAp2gAwIBAgIBADANBgkqhkiG9w0BAQsFADBGMRQwEgYDVQQDEwtpbnRl
+cm5hbC1jYTELMAkGA1UEBhMCU0UxEjAQBgNVBAcTCVN0b2NraG9sbTENMAsGA1UE
+ChMEQ0VMTzAeFw0yMTAyMTIyMTU4MzZaFw0zMTAyMTAyMTU4MzZaMEYxFDASBgNV
+BAMTC2ludGVybmFsLWNhMQswCQYDVQQGEwJTRTESMBAGA1UEBxMJU3RvY2tob2xt
+MQ0wCwYDVQQKEwRDRUxPMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA
+mK9iqXmaCFy5bjficXxT4TD6mPyKyqB0lX7W+VJwmeUI6v/n2w2J5toNYLJVIsMK
+veffZeh70p0agLiBpvutEz+zGxWRexzZ3NyiZy3RBF3/U/80PAwFQIcTVVRFHUVA
+WmFGsjuqPQWaSkBpces/w7fL+4y/MmWQNtiWGawFezxKA/QyTWTwAV+0ErqtLkMS
+8qLestgKSWi+fpa+co5dVgrQy0RQ62QXA4qGmnQ4OvvHzvNU8qGGP298G6AhlUs3
+1GncfkcExcVzZ6T0gD9RNkUMQTIbuS6ioNFrwH98mG8Az//r8BOGProoOkUcbItl
+EYdJEKBBWNKssb2TGDNxZwIDAQABo4GtMIGqMB0GA1UdDgQWBBQHcQS9m6T5AOfI
+bnmdAkPXfPEobzBuBgNVHSMEZzBlgBQHcQS9m6T5AOfIbnmdAkPXfPEob6FKpEgw
+RjEUMBIGA1UEAxMLaW50ZXJuYWwtY2ExCzAJBgNVBAYTAlNFMRIwEAYDVQQHEwlT
+dG9ja2hvbG0xDTALBgNVBAoTBENFTE+CAQAwDAYDVR0TBAUwAwEB/zALBgNVHQ8E
+BAMCAQYwDQYJKoZIhvcNAQELBQADggEBAFqEU+tts4ycEuEkhftW92DNmJZ5hrQF
+iAnOrG4k3fYmhG9fhks03my5gP+KzzJEFvgQE66qWDwl8H75TYTx83bad6cBeV4i
+2eY98OXfisaMNWMz7xDqjWQp5ipKGSrha2SkjtF5hsOpIw7ggiw5twmzjQ+GEumz
+VNYW3xeBSkr2uq4EJor3zfDqszrO/zriutlHEM5Cn+YqP7mjFVgOKFMDA5FmrVtr
+382egOF+jawAZiSbeG8eLI/+DOV9KW4jmlpVqBOcuwehur33iVmqYVx4Q5ZXYWlD
+1Wb3eCDNuvt8lRA+hlXUnFhoHThbiLvP6bEdApVt4B9O+nSeg9sf3GQ=
+-----END CERTIFICATE-----
+</ca>
+setenv CLIENT_CERT 0
+<tls-crypt>
+#
+# 2048 bit OpenVPN static key
+#
+-----BEGIN OpenVPN Static key V1-----
+b968104bbeb420605f1457d39222f610
+1d532a1bf38c892914e65532f1ef3b34
+7307433711794cb11fdba85b64f451fc
+09631ed96cb1cb30ca7588ad29920728
+6c762bd137e773d08bb0281af1caee4e
+f1246860d1c1daaaa106140bf79f64ca
+5656aa13dc2e18c8588a76c4218c0d45
+9587246347d3cfa459f9601245c74d31
+71b02479bcb906648b40f85098cbf90c
+be8f7f621fd93e645313e6f14faeeb0d
+f69fd8910bf5e1ad91533fa78ece0fda
+0068f12e728a4c3600c748a4ced67ca5
+709ac9e3589f7220483887401d6aae36
+9cdc184a8c04bac3fc636328974c14f6
+be6df80de4bd94976b5b9be516f00feb
+1c87e6e1db06f3603e7af55c3418b83a
+-----END OpenVPN Static key V1-----
+</tls-crypt>
